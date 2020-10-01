@@ -4,15 +4,16 @@
     <meta charset="UTF-8"/> <!-- Note the closing '/' character -->
     <title>Coding Events</title>
 
-    <script th:src="@{/script.js}"></script>
-    <link th:href="@{/styles.css}" rel="stylesheet">
-
+<!--    <script th:src="@{/script.js}"></script>-->
+<!--    <link th:href="@{/styles.css}" rel="stylesheet">-->
+    <link rel = "stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src = "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
-<body>
+<body class ="container">
 <nav th:fragment = "navigation">
-    <ul>
-        <li> <a href="/events">All Events</a></li>
-        <li><a href = "/events/create">Create Events</a></li>
+    <ul class = "nav">
+        <li class="nav-item"> <a class="nav-link" href="/events">All Events</a></li>
+        <li class="nav-item"> <a class="nav-link" href= "/events/create">Create Events</a></li>
     </ul>
 </nav>
 

@@ -12,11 +12,24 @@
 <p th:unless="${events} and ${events.size()}">No events!</p>
 
 <nav th:replace="fragments :: navigation"></nav>
- <ul>
-     <th:block th:each = "event: ${events}">
-         <li th:text = "${event}" ></li>
-     </th:block>
- </ul>
+<!-- <ul>-->
+<!--<th:block th:each = "event: ${events}">-->
+<!--    <li th:text = "${event}" ></li>-->
+<!--</th:block>-->
+<!-- </ul>-->
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>Name</th>
+    </tr>
+    </thead>
+    <tr th:each = "event: ${events}">
+        <td th:text = "${event}" ></td>
+    </tr>
+
+</table>
+
 
 </body>
 </html>
