@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="https://www.thymeleaf.org/">
-<head>
-    <meta charset="UTF-8"/> <!-- Note the closing '/' character -->
-    <title>Coding Events</title>
-</head>
+<!--<head>-->
+<!--    <meta charset="UTF-8"/> &lt;!&ndash; Note the closing '/' character &ndash;&gt;-->
+<!--    <title>Coding Events</title>-->
+<!--</head>-->
+<head th:replace="fragments::head"></head>
 <body>
 
 <h1>All Events</h1>
 <!--if events is null then display No events!-->
 <p th:unless="${events} and ${events.size()}">No events!</p>
+
+<nav th:replace="fragments :: navigation"></nav>
  <ul>
      <th:block th:each = "event: ${events}">
          <li th:text = "${event}" ></li>

@@ -1,12 +1,17 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="https://www.thymeleaf.org/">
-<head>
-    <meta charset="UTF-8"/> <!-- Note the closing '/' character -->
-    <title>Create Event</title>
-</head>
+<!--<head>-->
+<!--    <meta charset="UTF-8"/> &lt;!&ndash; Note the closing '/' character &ndash;&gt;-->
+<!--    <title>Create Event</title>-->
+<!--</head>-->
+
+<head th:replace="fragments::head"></head>
+
 <body>
 
 <h1> Create Event</h1>
+<!--Using Fragment navigation template-->
+<nav th:replace="fragments :: navigation"></nav>
 
 <form method="post" action="/events/create">
     <input type="text" name= "eventName">
