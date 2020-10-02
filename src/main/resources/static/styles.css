@@ -1,4 +1,16 @@
 body {
-    color: purple;
+    color: blue;
     font-size: 18px;
+}
+table{
+    margin-left:auto;
+    margin-right:auto;
+}
+
+tr,td{
+    padding:16px
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
 }
