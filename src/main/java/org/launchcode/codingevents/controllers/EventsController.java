@@ -63,4 +63,25 @@ public class EventsController {
         }
         return "redirect:";
     }
+
+    @GetMapping("edit/{eventId}")
+    public String displayEditForm(Model model, @PathVariable int eventId) {
+        // PathVariable is the variable in the url
+        Event event = EventData.getById(eventId); // calling static method so no need of instance
+        model.addAttribute("event", event);
+        if (event != null) {
+            model.addAttribute("title", "Edit Event " + event.getName() + "(Id=" + event.getId() + ")");
+        }
+        return "events/edit";
+    }
+
+    @PostMapping("edit")
+    public String processEditForm(int eventId, String name, String description) {
+        // controller code will go here
+        Event event = EventData.getById(eventId);
+        event.setName(name);
+        event.setDescription(description);
+        return "redirect:";
+
+    }
 }
