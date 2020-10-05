@@ -3,20 +3,29 @@
 
 <head th:replace="fragments::head"></head>
 
-<body>
-<h1 align="center">All Events</h1>
-<table>
-    <tr>
-        <th>Name</th>
-        <th>Description</th>
-        <th>Address</th>
+<body class = "container">
 
-    </tr>
-    <tr th:each="event:${events}">
-        <td th:text = "${event.key}"></td>
-        <td th:text = "${event.value}"></td>
-        <td><div th:replace = "fragments::address"></div></td>
-    </tr>
+<header th:replace="fragments::header"></header>
+
+<table class = "table table-striped">
+
+<!--<h1>All Events</h1>-->
+<!--    <nav th:replace="fragments :: navigation"></nav>-->
+
+<table class = "table table-striped">
+   <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+   </thead>
+        <tr th:each="event: ${events}">
+            <td th:text="${event.Id}"></td>
+            <td th:text="${event.name}"></td>
+            <td th:text="${event.description}"></td>
+        </tr>
 </table>
+
 </body>
 </html>
