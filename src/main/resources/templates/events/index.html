@@ -9,15 +9,13 @@
 
 <table class = "table table-striped">
 
-<!--<h1>All Events</h1>-->
-<!--    <nav th:replace="fragments :: navigation"></nav>-->
-
 <table class = "table table-striped">
    <thead>
         <tr>
             <th>ID</th>
             <th>Name</th>
             <th>Description</th>
+            <th>Contact Email</th>
             <th>Edit</th>
         </tr>
    </thead>
@@ -25,9 +23,11 @@
             <td th:text="${event.Id}"></td>
             <td th:text="${event.name}"></td>
             <td th:text="${event.description}"></td>
+            <td th:text="${event.contactEmail}"></td>
             <td>
                 <a th:href="@{/events/edit/{id}(id=${event.id})}">Edit</a>
             </td>
+
         </tr>
 </table>
 
