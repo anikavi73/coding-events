@@ -6,9 +6,6 @@
 <body class = "container">
 <header th:replace="fragments::header"></header>
 
-<!--error mesg-->
-<!--<p th:text="${errorMsg}" style = "color:red;"></p>-->
-
 <form method="post" >
     <div class = "form-group">
         <label>Name
@@ -41,6 +38,16 @@
     </div>
     <div class = "form-group">
         <input type="submit" value="Create" class="btn btn-success">
+    </div>
+
+<form method="post" action="/events/create">
+    <div class = "form-group">
+        <label>Name: 
+            <input type="text" name= "eventName" class="form-control">
+        </label>
+    </div>
+    <div class = "form-group">
+        <input type="submit" value="Create Event" class="btn btn-success">
     </div>
 
 </form>
