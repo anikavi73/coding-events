@@ -1,18 +1,12 @@
 package org.launchcode.codingevents.models;
 
-import java.util.Objects;
+import javax.persistence.Entity;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
-public class Event {
-
-    private int id;
-    private static int nextId =1;
-
-    public Event(){
-        this.id=nextId;
-    }
+@Entity
+public class Event extends AbstractEntity{
 
     @NotBlank(message = "Name is required")
     @Size(min = 3, max =50, message = "Name is between 3 to 50 characters long!" )
@@ -25,13 +19,16 @@ public class Event {
     @Email(message = "Invalid email. Try again.")
     private String contactEmail;
 
-    public Event(String name, String description, String contactEmail) {
+    private String type;
+
+    public Event(String name, String description, String contactEmail, String type) {
         this.name = name;
         this.description = description;
         this.contactEmail = contactEmail;
-        this.id = nextId;
-        nextId++;
+        this.type = type;
     }
+
+    public Event(){ }
 
     public String getDescription() {
         return description;
@@ -49,10 +46,6 @@ public class Event {
         this.name = name;
     }
 
-    public int getId() {
-        return id;
-    }
-
     public String getContactEmail() {
         return contactEmail;
     }
@@ -61,21 +54,17 @@ public class Event {
         this.contactEmail = contactEmail;
     }
 
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
     @Override
     public String toString() {
         return name;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Event event = (Event) o;
-        return id == event.id;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id);
-    }
 }
