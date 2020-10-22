@@ -1,17 +1,44 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="https://www.thymeleaf.org/">
-<!--<head>-->
-<!--    <meta charset="UTF-8"/> &lt;!&ndash; Note the closing '/' character &ndash;&gt;-->
-<!--    <title>Create Event</title>-->
-<!--</head>-->
 
 <head th:replace="fragments::head"></head>
 
-<body class ="container">
+<body class = "container">
+<header th:replace="fragments::header"></header>
 
-<h1> Create Event</h1>
-<!--Using Fragment navigation template-->
-<nav th:replace="fragments :: navigation"></nav>
+<form method="post" >
+    <div class = "form-group">
+        <label>Name
+<!--            <input type="text" name= "name" class="form-control">-->
+<!--            ThymeLefe  = generate th field corresponding to name field in the model object -->
+            <input th:field = "${event.name}" class="form-control">
+        </label>
+<!--        insert any error messages related to this field-->
+        <p class = "error" th:errors="${event.name}"></p>
+    </div>
+    <div class = "form-group">
+        <label>Description
+<!--            <input type="text" name= "description" class="form-control">-->
+            <input th:field="${event.description}" class="form-control">
+        </label>
+        <p class = "error" th:errors="${event.description}"></p>
+    </div>
+    <div class = "form-group">
+        <label>Contact Email
+<!--             <input type="text" name= "contactEmail" class="form-control">-->
+            <input th:field="${event.contactEmail}" class="form-control">
+        </label>
+        <p class = "error" th:errors="${event.contactEmail}"></p>
+    </div>
+    <div class = "form-group">
+        <label>Type
+            <input th:field="${event.type}" class="form-control">
+        </label>
+        <p class = "error" th:errors="${event.type}"></p>
+    </div>
+    <div class = "form-group">
+        <input type="submit" value="Create" class="btn btn-success">
+    </div>
 
 <form method="post" action="/events/create">
     <div class = "form-group">
